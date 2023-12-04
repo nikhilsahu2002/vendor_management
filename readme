@@ -1,0 +1,99 @@
+README
+Vendor Management System with Performance Metrics
+This is a Vendor Management System developed using Django and Django REST Framework. The system handles vendor profiles, tracks purchase orders, and calculates vendor performance metrics.
+
+Setup Instructions
+
+1. Clone the Repository
+
+git clone https://github.com/your-username/your-repository.git
+
+cd your-repository
+
+2. Install Dependencies
+
+pip install -r requirements.txt
+
+3. Apply Migrations
+
+python manage.py migrate
+
+4. Create a Superuser (Optional)
+
+python manage.py createsuperuser
+
+Follow the prompts to create a superuser account. This step is optional but allows you to access the Django admin interface.
+
+5. Run the Development Server
+
+python manage.py runserver
+
+The server will start at http://127.0.0.1:8000/.
+
+API Endpoints
+Vendor Endpoints
+List/Create Vendors:
+
+Endpoint: /api/vendors/
+Method: GET (List Vendors) and POST (Create Vendor)
+Retrieve/Update/Delete Vendor:
+
+Endpoint: /api/vendors/{vendor_id}/
+Method: GET, PUT, DELETE
+Vendor Performance Metrics:
+
+Endpoint: /api/vendors/{vendor_id}/performance/
+Method: GET
+Purchase Order Endpoints
+List/Create Purchase Orders:
+
+Endpoint: /api/purchase_orders/
+Method: GET (List Purchase Orders) and POST (Create Purchase Order)
+Retrieve/Update/Delete Purchase Order:
+
+Endpoint: /api/purchase_orders/{po_id}/
+Method: GET, PUT, DELETE
+Acknowledge Purchase Order:
+
+Endpoint: /api/purchase_orders/{po_id}/acknowledge/
+Method: POST
+Testing
+ThunderClient (VSCode Extension)
+Install the ThunderClient extension for VSCode.
+
+Open the requests.http file in the tests directory.
+
+Send requests to various API endpoints using ThunderClient.
+
+Example request for creating a vendor:
+
+http
+Copy code
+POST http://127.0.0.1:8000/api/vendors/
+Content-Type: application/json
+
+{
+"name": "Vendor Test",
+"contact_details": "Test Contact",
+"address": "Test Address",
+"vendor_code": "TEST123"
+}
+Example request for acknowledging a purchase order:
+
+http
+Copy code
+POST http://127.0.0.1:8000/api/purchase_orders/1/acknowledge/
+Check the ThunderClient responses for successful or failed requests.
+
+Django Admin Interface
+Access the Django admin interface at http://127.0.0.1:8000/admin/.
+
+Log in with the superuser credentials created earlier.
+
+Explore and manage vendors and purchase orders through the admin interface.
+
+Running Tests
+bash
+Copy code
+python manage.py test
+Run the test suite to ensure the functionality and reliability of the API endpoints.
